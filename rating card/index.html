@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rating card</title>
+    <link href="one.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="card">
+            <div id="submit-page">
+                <img src="image/star icon.svg" alt=".." class="star">
+                <div class="card-title">
+                    <h1>How did we do?</h1>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Please let us know how we did with your support
+                        request.All fssdback is appreciated to help us
+                        improve our offering!
+                    </p>
+                </div>
+                <div class="rating-group" id="rating-group">
+                    <input type="radio" class="rating" id="1-star" name="ratings" value="1">
+                    <label for="1-star" class="rating-container">1</label>
+                    <input type="radio" class="rating" id="2-star" name="ratings" value="2">
+                    <label for="2-star" class="rating-container">2</label>
+                    <input type="radio" class="rating" id="3-star" name="ratings" value="3">
+                    <label for="3-star" class="rating-container">3</label>
+                    <input type="radio" class="rating" id="4-star" name="ratings" value="4">
+                    <label for="4-star" class="rating-container">4</label>
+                    <input type="radio" class="rating" id="5-star" name="ratings" value="5">
+                    <label for="5-star" class="rating-container">5</label>
+                </div>
+                <button class="card-btn" id="submit">Submit</button>
+            </div>
+            <div id="success-page" class="hidden">
+                <img src="image/thank you.svg" alt=".." class="success-img">
+                <div class="success-msg">
+                    "You Selected
+                    <span id="submitted-rating"></span>
+                    out of 5"
+                </div>
+                <h1 class="thank">Thank you!</h1>
+                <p class="success-body">" We appreciate you taking the time to give a rating. If you ever need more
+                    support,
+                    don't hesitate to get in touch! "
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const submitBtn = document.getElementById("submit");
+        const ratings = document.querySelectorAll(".rating");
+        const card = document.getElementById("card");
+        const submitPage = document.getElementById("submit-page");
+        const successPage = document.getElementById("success-page");
+        const submittedRating = document.getElementById("submitted-rating");
+        let ratingValue;
+        submitBtn.addEventListener("click", (e) => {
+            const checked = document.querySelector('input:checked');
+            if (checked == null) {
+                console.log("null");
+            } else {
+                ratingValue = checked.value;
+                submitPage.classList.add("hidden");
+                successPage.classList.remove("hidden");
+                submittedRating.innerText = ratingValue;
+            }
+            return ratingValue;
+        });
+
+
+        
+    </script>
+</body>
+
+</html>
